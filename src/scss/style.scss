@@ -1,0 +1,174 @@
+@import "./_variables.scss";
+@import "./_mixins.scss";
+@import "./_placeholders.scss";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.wes {
+	height: 100px;
+	width: 100px;
+}
+
+#webgl {
+	width: 50px;
+	height: 50px;
+	border: 2px solid black;
+	outline: none;
+}
+.sphere {
+	mix-blend-mode: difference;
+	position: absolute;
+	z-index: -1;
+}
+
+body {
+	background-color: $blackcolor;
+}
+.title_name {
+	color: white;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-family: "Carlito", sans-serif;
+	font-weight: 700;
+	font-size: 30px;
+	mix-blend-mode: difference;
+}
+nav {
+	margin: 2vh 10vw;
+	@include flexbox(space-between, center);
+}
+.button_contact {
+	position: relative;
+	@extend %flex-center;
+	border: 1px solid white;
+	width: 10vw;
+	/* border-radius: 20px; */
+	font-family: "Carlito", sans-serif;
+	text-decoration: none;
+	background-color: white;
+	color: white;
+	mix-blend-mode: difference;
+	aspect-ratio: 6/1;
+	border-radius: 50px;
+}
+.button_contact::before {
+	@extend %absolute-0;
+	content: "";
+	background-color: white;
+	width: 0%;
+	height: 100%;
+	font-size: 30px;
+	transition: all 1s;
+	z-index: -1;
+	mix-blend-mode: difference;
+	border-radius: 50px;
+}
+
+.button_contact:hover::before {
+	width: 100%;
+}
+.text_difference_in_button_contact {
+	mix-blend-mode: difference;
+	white-space: nowrap;
+	margin: 10px;
+}
+.section_1 {
+	@extend %flex-center;
+	color: white;
+	width: 100vw;
+	height: 70vh;
+	font-family: "Carlito";
+}
+.principal_container {
+	display: flex;
+	height: 50vh;
+	margin: 0 10vw;
+}
+.left-in-section-1 {
+	flex: 1;
+	margin: 2vh 5vw;
+	@include flexbox(center, start);
+	flex-direction: column;
+	h1 {
+		mix-blend-mode: difference;
+		font-size: 30px;
+		text-align: start;
+		@include flexbox(start, start);
+	}
+}
+
+.right-in-section-1 {
+	flex: 1;
+}
+.title-in-left-section-1 {
+	padding: 2vh 0;
+	color: white;
+	font-weight: 400;
+	text-align: justify;
+	line-height: 100%;
+}
+.button-decouverte {
+	margin-top: 2vh;
+	position: relative;
+	aspect-ratio: 3/1;
+	@extend %flex-center;
+	width: 10vw;
+	border: 1px solid white;
+	/* background-color: rgb(10, 192, 80); */
+	background-color: white;
+	color: black;
+	font-size: 1.5em;
+	border-radius: 50px;
+	transition: all 0.5s;
+	mix-blend-mode: difference;
+}
+.button-decouverte::before {
+	transition: all 0.7s;
+	content: "";
+	@extend %absolute-0;
+	background-color: white;
+	width: 0%;
+	height: 100%;
+	z-index: -1;
+	border-radius: 50px;
+}
+.button-decouverte:hover::before {
+	width: 100%;
+	box-shadow: 0px 1px 1px rgba(10, 192, 80, 0.5), 0px 2px 4px rgba(10, 192, 80, 0.5), 0px 4px 8px rgba(10, 192, 80, 0.5),
+		0px 8px 16px rgba(10, 192, 80, 0.5);
+}
+
+.photo_pro {
+	height: 100%;
+	object-fit: cover;
+	border-radius: 20px;
+	box-shadow: 0px 1px 2px rgba(10, 192, 80, 0.5), 0px 2px 4px rgba(10, 192, 80, 0.5), 0px 4px 8px rgba(10, 192, 80, 0.5),
+		0px 8px 16px rgba(10, 192, 80, 0.5);
+}
+.word_automate_status {
+	margin-left: 8px;
+	color: rgb(10, 192, 80);
+	text-shadow: 0px 1px 2px rgba(10, 192, 80, 0.5), 0px 2px 4px rgba(10, 192, 80, 0.5), 0px 4px 8px rgba(10, 192, 80, 0.5),
+		0px 8px 16px rgba(10, 192, 80, 0.5);
+}
+
+.animation_iframe {
+	position: absolute;
+	bottom: 10vh;
+	border: none;
+}
+.section_0 {
+	@extend %flex-center;
+	height: 92vh;
+	h1 {
+		text-transform: uppercase;
+		font-size: 4rem;
+		margin-bottom: 8vh;
+		color: white;
+		font-family: "Carlito", sans-serif;
+		font-weight: 700;
+	}
+}
