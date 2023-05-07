@@ -1,11 +1,53 @@
 %flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-%absolute-0{
-  position: absolute;
-  top: 0;
-  left: 0;
+%absolute-0 {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+%no_decoration {
+	text-decoration: none;
+	color: black;
+}
+
+%button_with_border {
+	position: relative;
+	@extend %flex-center;
+	border: 2px solid red;
+	width: 10vw;
+	font-family: "Carlito", sans-serif;
+	text-decoration: none;
+	padding: 0 40px;
+	background-color: $blackcolor;
+	color: white;
+	mix-blend-mode: difference;
+	aspect-ratio: 6/1;
+	border-radius: 50px;
+	&::before {
+		@extend %absolute-0;
+		content: "";
+		background-color: white;
+		width: 0%;
+		height: 100%;
+
+		transition: all 1s;
+		z-index: -1;
+		mix-blend-mode: difference;
+		border-radius: 50px;
+	}
+	&:hover::before {
+		width: 100%;
+	}
+}
+
+%text_button_with_border {
+	mix-blend-mode: difference;
+	font-size: 20px;
+	white-space: nowrap;
+	margin: 10px;
 }

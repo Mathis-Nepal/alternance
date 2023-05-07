@@ -22,13 +22,17 @@ const scene = new THREE.Scene();
 gltfLoaderForPhone.load("assets/pop.gltf", (gltf) => {
 	gltf.scene.scale.set(0.15, 0.15, 0.15);
 	gltf.scene.rotation.set(0, 6, 0);
+	gltf.scene.position.set(0, -0.5, 0);
 	scene.add(gltf.scene);
+	gui.add(gltf.scene.position, "x").min(-6).max(9);
+	gui.add(gltf.scene.position, "y").min(-6).max(9).step(0.01);
+	gui.add(gltf.scene.position, "z").min(-6).max(9);
 	gui.add(gltf.scene.rotation, "x").min(0).max(9);
 	gui.add(gltf.scene.rotation, "y").min(0).max(9);
 	gui.add(gltf.scene.rotation, "z").min(0).max(9);
-	gui.add(pointLightForPhone.position, "x").min(0).max(9);
-	gui.add(pointLightForPhone.position, "y").min(0).max(9);
-	gui.add(pointLightForPhone.position, "z").min(0).max(9);
+	// gui.add(pointLightForPhone.position, "x").min(0).max(9);
+	// gui.add(pointLightForPhone.position, "y").min(0).max(9);
+	// gui.add(pointLightForPhone.position, "z").min(0).max(9);
 	timeline.to(gltf.scene.rotation, { y: 4.75, x: 0, z: 0, duration: 1 });
 	timeline.to(gltf.scene.scale, { y: 0.2, x: 0.2, z: 0.2, duration: 1 }, "-=1");
 	timeline.to(gltf.scene.position, { x: 0.5, duration: 1 }, "-=0.5");
@@ -50,8 +54,8 @@ const HelperLightPhone = new THREE.PointLightHelper(pointLightForPhone, 0.2);
 scene.add(HelperLightPhone);
 
 const sizesForPhone = {
-	width: window.innerWidth,
-	height: window.innerHeight,
+	width: window.innerWidth * 0.5,
+	height: window.innerHeight * 0.5,
 };
 
 const sizesForSphere = {
@@ -107,7 +111,6 @@ const material = new THREE.MeshStandardMaterial({
 	color: 0x292929,
 	metalness: 0.7,
 	roughness: 0.2,
-	// flatShading: true,
 	normalMap: normalTexture,
 });
 
@@ -115,6 +118,8 @@ const guiForSPhere = new dat.GUI();
 const elementsphere = document.getElementById("sphere");
 const sceneForSphere = new THREE.Scene();
 console.log(sizesForSphere.width * 0.003);
+
+guiForSPhere.close();
 
 const sphere = new THREE.Mesh(sphereGeometry, material);
 sphere.scale.set(sizesForSphere.width * 0.0012, sizesForSphere.width * 0.0012, sizesForSphere.width * 0.0012);
@@ -125,6 +130,8 @@ sphere.scale.set(sizesForSphere.width * 0.0012, sizesForSphere.width * 0.0012, s
 // guiForSPhere.add(sphere.rotation, "x").min(0).max(9);
 // guiForSPhere.add(sphere.rotation, "y").min(0).max(9);
 // guiForSPhere.add(sphere.rotation, "z").min(-6).max(9).step(0.1);
+
+gui.close();
 sceneForSphere.add(sphere);
 
 const pointLightForSphereWhite = new THREE.PointLight(0xffffff, 1);
