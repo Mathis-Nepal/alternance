@@ -2,6 +2,24 @@
 @import "./_mixins.scss";
 @import "./_placeholders.scss";
 
+// @font-face {
+// 	font-family: "Heatar";
+// 	src: url(../../static/assets/fonts/Heaters.woff2) format("opentype");
+// }
+
+@font-face {
+	font-family: "quanta-regular";
+	src: url(../../static/assets/fonts/Web-PS/QuantaGroteskPro-Regular.woff2) format("opentype");
+}
+@font-face {
+	font-family: "quanta-semi";
+	src: url(../../static/assets/fonts/Web-PS/QuantaGroteskPro-SemiBold.woff2) format("opentype");
+}
+@font-face {
+	font-family: "agrandir-regular";
+	src: url(../../static/assets/fonts/Agrandir-Regular.otf) format("opentype");
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -9,29 +27,49 @@
 
 #webgl {
 	position: absolute;
-	width: 80vw;
-	height: 50px;
+	left: 15vw;
+	// right: 75%;
+	// width: 80vw;
+	// height: 50px;
 	border: 2px solid white;
-	outline: none;
+	// outline: none;
 }
 .sphere {
 	// mix-blend-mode: exclusion;
 	position: absolute;
 	border: 2px solid white;
+	top: 0;
+	left: 72vw;
+
+	// border: 2px solid white;
 	z-index: -1;
+}
+html {
+	font-size: 14px;
 }
 
 body {
+	// font-size: 14px;
+	// width: 100%;
+	// -webkit-font-smoothing: none;
+	// -moz-osx-font-smoothing: none;
+	// -moz-font-feature-settings: "liga=0";
+	// text-rendering: optimizeLegibility;
 	background-color: $blackcolor;
+	background-image: linear-gradient(to right, #353535 3px, transparent 3px), linear-gradient(to bottom, #353535 3px, transparent 3px);
+	background-size: 100px 100px;
+	// background-color: $blackcolor;
 	overflow-x: hidden;
 }
 .title_name {
 	color: white;
 	text-transform: uppercase;
 	text-decoration: none;
-	font-family: "Carlito", sans-serif;
+	//font-family: "Carlito", sans-serif;
+	font-family: "quanta-regular";
+	letter-spacing: 0.05em;
 	font-weight: 700;
-	font-size: 30px;
+	font-size: 2rem;
 	mix-blend-mode: difference;
 }
 nav {
@@ -65,7 +103,7 @@ nav {
 	flex-direction: column;
 	h1 {
 		mix-blend-mode: difference;
-		font-size: 30px;
+		font-size: 2rem;
 		text-align: start;
 		@include flexbox(start, start);
 	}
@@ -136,20 +174,70 @@ nav {
 	border: none;
 }
 .section_0 {
-	@extend %flex-center;
+	// @extend %flex-center;
+
+	@include flexbox(start, center);
+	padding-left: 10vw;
 	height: 91vh;
 	h1 {
-		text-transform: uppercase;
+		// text-transform: uppercase;
 		font-size: 4rem;
 		// margin-bottom: 8vh;
 		color: white;
 		font-family: "Carlito", sans-serif;
 		font-weight: 700;
 	}
+
+	.title {
+		position: relative;
+		// top: 300px;
+		display: flex;
+		flex-direction: column;
+		align-items: star;
+		h1 {
+			font-family: "quanta-semi";
+
+			// text-transform: uppercase;
+			font-size: 15rem;
+		}
+		h2 {
+			position: absolute;
+			margin-left: 4%;
+			// position: absolute;
+			// top: 50;
+			top: 45%;
+			// left: 0;
+
+			font-family: "quanta-semi";
+			font-size: 15rem;
+			color: $purple;
+		}
+	}
+}
+.inferieur_title {
+	display: flex;
+	align-self: flex-start;
+	font-family: "agrandir-regular";
+	font-size: 2rem;
+	color: white;
+	padding-top: 15vh;
+}
+.contain_name_title {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .section_2 {
+	position: relative;
 	@extend %flex-center;
 	height: 100vh;
 	width: 100vw;
+}
+
+@media (max-width: 768px) {
+	html {
+		font-size: 5px;
+	}
 }

@@ -11,7 +11,7 @@ import "./app.js";
 
 //loadng
 const textureLoader = new THREE.TextureLoader();
-const normalTexture = textureLoader.load("/textures/NormalMap.png");
+const normalTexture = textureLoader.load("/textures/NormalMap (9).png");
 
 const gltfLoaderForPhone = new GLTFLoader();
 const gui = new dat.GUI();
@@ -19,10 +19,11 @@ const elementWebGl = document.getElementById("webgl");
 let timeline = gsap.timeline();
 const scene = new THREE.Scene();
 
-gltfLoaderForPhone.load("assets/pop.gltf", (gltf) => {
-	gltf.scene.scale.set(0.15, 0.15, 0.15);
+gltfLoaderForPhone.load("assets/olo/Iphone.gltf", (gltf) => {
+	// gltf.scene.scale.set(0.15, 0.15, 0.15);
+	gltf.scene.scale.set(sizesForPhone.width * 0.001, sizesForPhone.width * 0.001, sizesForPhone.width * 0.001);
 	gltf.scene.rotation.set(0, 6, 0);
-	gltf.scene.position.set(0, -0.5, 0);
+	gltf.scene.position.set(-1, -0.34, 0);
 	scene.add(gltf.scene);
 	gui.add(gltf.scene.position, "x").min(-6).max(9);
 	gui.add(gltf.scene.position, "y").min(-6).max(9).step(0.01);
@@ -34,12 +35,16 @@ gltfLoaderForPhone.load("assets/pop.gltf", (gltf) => {
 	// gui.add(pointLightForPhone.position, "y").min(0).max(9);
 	// gui.add(pointLightForPhone.position, "z").min(0).max(9);
 	timeline.to(gltf.scene.rotation, { y: 4.75, x: 0, z: 0, duration: 1 });
-	timeline.to(gltf.scene.scale, { y: 0.2, x: 0.2, z: 0.2, duration: 1 }, "-=1");
-	timeline.to(gltf.scene.position, { x: 0.5, duration: 1 }, "-=0.5");
+	timeline.to(
+		gltf.scene.scale,
+		{ y: sizesForPhone.width * 0.00035, x: sizesForPhone.width * 0.00035, z: sizesForPhone.width * 0.00035, duration: 1 },
+		"-=1"
+	);
+	timeline.to(gltf.scene.position, { x: -0.2, y: -0.34, z: 0, duration: 1 }, "-=0.5");
 });
 
 // Lights
-const pointLightForPhone = new THREE.PointLight(0xffffff, 1);
+const pointLightForPhone = new THREE.PointLight(0xffffff, 2);
 pointLightForPhone.position.set(0.7, 0.6, 0.35);
 pointLightForPhone.intensity = 0.5;
 
@@ -54,19 +59,21 @@ const HelperLightPhone = new THREE.PointLightHelper(pointLightForPhone, 0.2);
 scene.add(HelperLightPhone);
 
 const sizesForPhone = {
-	width: window.innerWidth * 0.5,
-	height: window.innerHeight * 0.5,
+	width: window.innerWidth / 2,
+	height: window.innerHeight,
 };
 
 const sizesForSphere = {
-	width: window.innerWidth,
+	width: window.innerWidth * 0.5,
 	height: window.innerHeight,
 };
 
 window.addEventListener("resize", () => {
 	// Update sizes
-	sizesForSphere.width = window.innerWidth;
+	sizesForSphere.height = window.innerHeight;
+	sizesForSphere.width = window.innerWidth / 2;
 	sizesForPhone.height = window.innerHeight;
+	sizesForPhone.width = window.innerWidth / 2;
 
 	// Update camera
 	cameraForPhone.aspect = sizesForPhone.width / sizesForPhone.height;
@@ -81,7 +88,10 @@ window.addEventListener("resize", () => {
 
 	rendererForSphere.setSize(sizesForSphere.width, sizesForSphere.height);
 	rendererForSphere.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-	sphere.scale.set(sizesForSphere.width * 0.0012, sizesForSphere.width * 0.0012, sizesForSphere.width * 0.0012);
+
+	//gltfLoaderForPhone.load.scene.scale.set(sizesForSphere.width * 0.0022, sizesForSphere.width * 0.0022, sizesForSphere.width * 0.0022);
+	// gltfLoaderForPhone.load.scene.scale.set(sizesForPhone.width * 0.001, sizesForPhone.width * 0.001, sizesForPhone.width * 0.001);
+	sphere.scale.set(sizesForSphere.width * 0.0022, sizesForSphere.width * 0.0022, sizesForSphere.width * 0.0022);
 });
 
 const cameraForPhone = new THREE.PerspectiveCamera(75, sizesForPhone.width / sizesForPhone.height, 0.1, 100);
@@ -108,8 +118,8 @@ Aos.init();
 // const gltfLoaderForSphere = new GLTFLoader();
 const sphereGeometry = new THREE.SphereGeometry(0.2, 64, 64);
 const material = new THREE.MeshStandardMaterial({
-	color: 0x292929,
-	metalness: 0.7,
+	color: 0x232323,
+	metalness: 0.6,
 	roughness: 0.2,
 	normalMap: normalTexture,
 });
@@ -117,12 +127,12 @@ const material = new THREE.MeshStandardMaterial({
 const guiForSPhere = new dat.GUI();
 const elementsphere = document.getElementById("sphere");
 const sceneForSphere = new THREE.Scene();
-console.log(sizesForSphere.width * 0.003);
 
 guiForSPhere.close();
 
 const sphere = new THREE.Mesh(sphereGeometry, material);
-sphere.scale.set(sizesForSphere.width * 0.0012, sizesForSphere.width * 0.0012, sizesForSphere.width * 0.0012);
+sphere.scale.set(sizesForSphere.width * 0.0022, sizesForSphere.width * 0.0022, sizesForSphere.width * 0.0022);
+// sphere.rotation.z = 0.5;
 
 // guiForSPhere.add(sphere.scale, "x").min(0).max(9);
 // guiForSPhere.add(sphere.scale, "y").min(0).max(9);
@@ -135,8 +145,8 @@ gui.close();
 sceneForSphere.add(sphere);
 
 const pointLightForSphereWhite = new THREE.PointLight(0xffffff, 1);
-pointLightForSphereWhite.position.set(-3, 2.3, 0.4);
-pointLightForSphereWhite.intensity = 1.7;
+pointLightForSphereWhite.position.set(-3, -0.5, 2.2);
+pointLightForSphereWhite.intensity = 3;
 
 var folderSphereWhiteLight = guiForSPhere.addFolder("White-Light");
 folderSphereWhiteLight.add(pointLightForSphereWhite, "intensity").min(-6).max(9).step(0.1);
@@ -145,9 +155,9 @@ folderSphereWhiteLight.add(pointLightForSphereWhite.position, "y").min(-6).max(9
 folderSphereWhiteLight.add(pointLightForSphereWhite.position, "z").min(-6).max(9).step(0.1);
 sceneForSphere.add(pointLightForSphereWhite);
 
-const pointLightForSphereRed = new THREE.PointLight(0xff0000, 1);
+const pointLightForSphereRed = new THREE.PointLight(0xaf23f8, 1);
 pointLightForSphereRed.position.set(7, 4.5, -2.6);
-pointLightForSphereRed.intensity = 4;
+pointLightForSphereRed.intensity = 7;
 
 var folderSphereRedLight = guiForSPhere.addFolder("Red-Light");
 folderSphereRedLight.add(pointLightForSphereRed, "intensity").min(-6).max(9).step(0.1);
@@ -189,24 +199,33 @@ function onDocumentMouseMove(event) {
 	mouseY = event.clientY - windowHalfY;
 }
 
-const scroolSpere = (event) => {
+const scrollSphere = (event) => {
 	sphere.position.y = window.scrollY * 0.0005;
 };
 
-document.addEventListener("scroll", scroolSpere);
+const FirstLastName = document.getElementById("first_last_name");
+
+const scrollTitle = (event) => {
+	FirstLastName.style.top = `${window.scrollY * 0.08}px`;
+	console.log(window.scrollY * 0.0005);
+};
+
+document.addEventListener("scroll", scrollSphere);
+document.addEventListener("scroll", scrollTitle);
 
 const clock = new THREE.Clock();
 
 const tick1 = () => {
 	const elapsedTime = clock.getElapsedTime();
 	sphere.rotation.y = 0.5 * elapsedTime;
+	// sphere.rotation.z = 0.3 * elapsedTime;
 	// sphere.rotation.x = 0.4 * elapsedTime;
 	targetX = mouseX * 0.0012;
 	targetY = mouseY * 0.0012;
 
 	sphere.rotation.x += 0.05 * (targetY - sphere.rotation.x);
 	sphere.rotation.y += 0.5 * (targetX - sphere.rotation.y);
-	sphere.position.z += -0.03 * (targetY - sphere.rotation.x);
+	sphere.position.z += -0.02 * (targetY - sphere.rotation.x);
 	rendererForSphere.render(sceneForSphere, cameraForSphere);
 	window.requestAnimationFrame(tick1);
 };

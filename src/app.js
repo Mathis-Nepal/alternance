@@ -19,7 +19,7 @@ function AnimatedText(target, texts, changeInterval, updateInterval, onTextChang
 		function () {
 			currentText = parseInt(Math.random() * texts.length);
 		}.bind(this),
-		changeInterval ? changeInterval : 2500,
+		changeInterval ? changeInterval : 2500
 	);
 }
 AnimatedText.prototype = {
@@ -29,5 +29,10 @@ AnimatedText.prototype = {
 		clearInterval(this.t2);
 	},
 };
+
+const monelement = document.getElementById("inferieur_title");
+const inferieurTitle = "<h2> Web & mobile developper <h2/>";
+monelement.textContent = inferieurTitle;
+
 new AnimatedText(document.getElementById("princpale_big_tile"), ["développeur", "étudiant", "en recherche d'alternance"]);
-new AnimatedText(document.getElementById("title_name"), ["Front-End", "Developper", "Mobile", "Web", "Creative"]);
+new AnimatedText(document.getElementById("title_name"), ["//Coder", "//Developper", "//Mobile", "//Web"]);
