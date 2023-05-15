@@ -1,0 +1,72 @@
+%flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+%absolute-0 {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+%absolute {
+	position: absolute;
+}
+
+%no_decoration {
+	text-decoration: none;
+}
+
+%button_redirection {
+	background-color: $white;
+	// padding: 0 10vw;
+	width: 100%;
+	color: $blackcolor;
+	font-size: 2rem;
+	font-family: $demibold;
+	text-decoration: none;
+	border-radius: 10px;
+	transition: all 0.2s ease-in;
+	&:hover {
+		background-color: $blackcolor;
+		color: $white;
+	}
+}
+
+%button_with_border {
+	position: relative;
+	@extend %flex-center;
+	// border: 2px solid white;
+	width: 10vw;
+	font-family: "fontspring_demibold";
+	text-decoration: none;
+	padding: 5px 10px;
+	background-color: $purple;
+	color: $white;
+	// mix-blend-mode: difference;
+	aspect-ratio: 6/1;
+	border-radius: 50px;
+	&::before {
+		@extend %absolute-0;
+		content: "";
+		background-color: $blackcolor;
+		width: 0%;
+		height: 100%;
+
+		transition: all 1s;
+		z-index: 1;
+		mix-blend-mode: difference;
+		border-radius: 50px;
+	}
+	&:hover::before {
+		width: 100%;
+	}
+}
+
+%text_button_with_border {
+	mix-blend-mode: difference;
+	font-size: 20px;
+	white-space: nowrap;
+	// margin: 10px;
+}

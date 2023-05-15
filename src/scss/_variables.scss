@@ -1,0 +1,29 @@
+@font-face {
+	font-family: "fontspring_bold";
+	src: url(../../static/assets/fonts/fontspring/Fontspring-DEMO-visbycf-bold.otf) format("opentype");
+}
+@font-face {
+	font-family: "fontspring_demibold";
+	src: url(../../static/assets/fonts/fontspring/Fontspring-DEMO-visbycf-demibold.otf) format("opentype");
+}
+@font-face {
+	font-family: "fontspring_extrabold";
+	src: url(../../static/assets/fonts/fontspring/Fontspring-DEMO-visbycf-extrabold.otf) format("opentype");
+}
+@font-face {
+	font-family: "stolzl_book";
+	src: url(../../static/assets/fonts/stolzl/Stolzl_Book.ttf) format("opentype");
+}
+
+//color
+
+// $blackcolor: #242424;
+$blackcolor: #242424;
+$purple: #9ba2ff;
+$white: #f6f6f6;
+
+//font-family
+$book: stolzl_book;
+$bold: fontspring_bold;
+$demibold: fontspring_demibold;
+$extrabold: fontspring_extrabold;
