@@ -13,13 +13,13 @@ function AnimatedText(target, texts, changeInterval, updateInterval, onTextChang
 			if (onTextChanged && diff) onTextChanged();
 			target.innerHTML = areaText.length == 0 ? "&nbsp;" : areaText;
 		}.bind(this),
-		updateInterval ? updateInterval : 10
+		updateInterval ? updateInterval : 25
 	);
 	this.t2 = setInterval(
 		function () {
 			currentText = parseInt(Math.random() * texts.length);
 		}.bind(this),
-		changeInterval ? changeInterval : 2500
+		changeInterval ? changeInterval : 2000
 	);
 }
 AnimatedText.prototype = {
@@ -30,9 +30,22 @@ AnimatedText.prototype = {
 	},
 };
 
-const monelement = document.getElementById("inferieur_title");
-const inferieurTitle = "<h2> Web & mobile developper <h2/>";
-monelement.textContent = inferieurTitle;
+// const monelement = document.getElementById("inferieur_title");
+// const inferieurTitle = "<h2> Web & mobile developper <h2/>";
+// monelement.textContent = inferieurTitle;
 
-new AnimatedText(document.getElementById("princpale_big_tile"), ["développeur", "étudiant", "en recherche d'alternance"]);
-new AnimatedText(document.getElementById("title_name"), ["//Coder", "//Developper", "//Mobile", "//Web"]);
+const Status = document.getElementById("status_automate");
+const scrollStatus = (event) => {
+	Status.style.top = `${window.scrollY * 0.03}vh`;
+
+	// const opacity = Math.max(0, 1 - window.scrollY * 0.002);
+	// Status.style.opacity = opacity;
+	// console.log(opacity);
+	// console.log(Status.style.marginTop);
+};
+
+document.addEventListener("scroll", scrollStatus);
+
+// new AnimatedText(document.getElementById("status_automate"), ["alternant ?", "developpeur ?", "creatif ?"]);
+// new AnimatedText(document.getElementById("princpale_big_tile"), ["développeur", "étudiant", "en recherche d'alternance"]);
+// new AnimatedText(document.getElementById("title_name"), ["//Coder", "//Developper", "//Mobile", "//Web"]);

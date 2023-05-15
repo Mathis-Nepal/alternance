@@ -38,7 +38,7 @@ module.exports = merge(commonConfiguration, {
 	module: {
 		rules: [
 			{
-				test: /\.jpg/,
+				test: /\.(png|jpg|gif)$/i,
 				type: "asset/resource",
 			},
 		],

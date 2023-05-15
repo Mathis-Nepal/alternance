@@ -199,19 +199,19 @@ function onDocumentMouseMove(event) {
 	mouseY = event.clientY - windowHalfY;
 }
 
-const scrollSphere = (event) => {
-	sphere.position.y = window.scrollY * 0.0005;
-};
+// const scrollSphere = (event) => {
+// 	sphere.position.y = window.scrollY * 0.0005;
+// };
 
 const FirstLastName = document.getElementById("first_last_name");
 
-const scrollTitle = (event) => {
-	FirstLastName.style.top = `${window.scrollY * 0.08}px`;
-	console.log(window.scrollY * 0.0005);
-};
+// const scrollTitle = (event) => {
+// 	FirstLastName.style.top = `${window.scrollY * 0.08}px`;
+// 	console.log(window.scrollY * 0.0005);
+// };
 
-document.addEventListener("scroll", scrollSphere);
-document.addEventListener("scroll", scrollTitle);
+// document.addEventListener("scroll", scrollSphere);
+// document.addEventListener("scroll", scrollTitle);
 
 const clock = new THREE.Clock();
 
