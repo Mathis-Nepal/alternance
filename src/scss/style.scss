@@ -33,18 +33,18 @@
 }
 html {
 	font-size: 14px;
-	@media (max-width: 1200px) {
-		font-size: 13px;
-	}
-	@media (max-width: 1065px) {
-		font-size: 12px;
-	}
-	@media (max-width: 985px) {
-		font-size: 11px;
-	}
-	@media (max-width: 901px) {
-		font-size: 10px;
-	}
+	// @media (max-width: 1200px) {
+	// 	font-size: 13px;
+	// }
+	// @media (max-width: 1065px) {
+	// 	font-size: 12px;
+	// }
+	// @media (max-width: 985px) {
+	// 	font-size: 11px;
+	// }
+	// @media (max-width: 901px) {
+	// 	font-size: 10px;
+	// }
 }
 
 body {
@@ -237,30 +237,30 @@ nav {
 		h1 {
 			font-family: "fontspring_bold";
 			// white-space: nowrap;
-			font-size: 8rem;
+			font-size: clamp(2rem, 4rem + 4vw, 8rem);
 		}
 		h2 {
 			// text-shadow: 0px 0px 18px rgba(255, 255, 255, 0.25);
-			@extend %absolute;
-			top: 60%;
+			// @extend %absolute;
+			// top: 60%;
 			font-family: "fontspring_extrabold";
-			font-size: 9rem;
+			font-size: clamp(2rem, 4rem + 5vw, 9rem);
 			color: $purple;
 			span {
 				position: relative;
 
-				&::before {
-					content: "";
-					@extend %absolute;
-					display: flex;
-					width: 1.59rem;
-					height: 300%;
-					background-color: #9ba2ff;
-					top: 64%;
-					right: 1.66rem;
-					z-index: -1;
-					border-radius: 9px;
-				}
+				// &::before {
+				// 	content: "";
+				// 	@extend %absolute;
+				// 	display: flex;
+				// 	width: 1.59rem;
+				// 	height: 300%;
+				// 	background-color: #9ba2ff;
+				// 	top: 64%;
+				// 	right: 1.66rem;
+				// 	z-index: -1;
+				// 	border-radius: 9px;
+				// }
 			}
 		}
 	}
@@ -285,4 +285,78 @@ nav {
 	@extend %flex-center;
 	height: 100vh;
 	width: 100vw;
+}
+.section_3 {
+	padding: 0 5vw;
+	height: 100vh;
+	position: relative;
+	background-color: $purple;
+	@extend %flex-center;
+	.contain_last_project {
+		// min-height: 70vh;
+		min-height: 600px;
+		// max-height: 600px;
+		// height: 100vh;
+		flex: 2;
+		// gap: 100px;
+		@include flexbox(space-between, start);
+
+		flex-direction: column;
+		.title_last {
+			margin: 0;
+			padding: 0;
+			font-family: "fontspring_bold";
+			font-size: clamp(3rem, 4rem + 4vw, 8rem);
+			line-height: 80%;
+			color: $blackcolor;
+			text-transform: uppercase;
+		}
+		.presentation_project {
+			max-width: 700px;
+			font-family: $book;
+			color: $blackcolor;
+			display: flex;
+			justify-content: center;
+			font-size: clamp(0.75rem, 0.75rem + 2vw, 2rem);
+			// height: 35rem;
+			line-height: 30px;
+			letter-spacing: -0.01rem;
+			text-align: left;
+		}
+	}
+}
+
+.title_project {
+	font-size: clamp(3rem, 4rem + 4vw, 8rem);
+	line-height: 80%;
+	font-family: "fontspring_extrabold";
+	color: $white;
+	text-transform: uppercase;
+}
+.button_kalastr {
+	@extend %flex-center;
+	@extend %button_redirection;
+	max-width: 350px;
+}
+.container_mockup {
+	display: flex;
+	flex: 1;
+	.img_mockup {
+		max-width: 300px;
+		display: flex;
+	}
+}
+
+.in_contain_section_3 {
+	gap: 3rem;
+	@extend %flex-center;
+}
+
+@media screen and (max-width: 768px) {
+	.section_3 {
+		display: block;
+	}
+	.in_contain_section_3 {
+		display: block;
+	}
 }
