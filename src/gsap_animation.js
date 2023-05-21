@@ -5,11 +5,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 gsap.to("#status_automate", {
 	scrollTrigger: {
-		trigger: "#status_automate",
+		trigger: ".section_0",
 		markers: true,
-		start: "bottom center",
+		start: "70% center",
 		scrub: 2,
-		end: "+=500",
+		endTrigger: ".section_1",
+		end: "top center",
 	},
-	top: 450,
+	top: 500,
 });

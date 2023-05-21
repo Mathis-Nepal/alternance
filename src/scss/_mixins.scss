@@ -1,5 +1,14 @@
-@mixin flexbox( $justify ,$align ) {
-  display: flex;
-  justify-content: $justify;
-  align-items: $align;
+@mixin flexbox($justify, $align, $direction: row) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $align;
+	flex-direction: $direction;
+}
+
+@mixin absolute($top, $bottom, $left, $right) {
+	position: absolute;
+	top: $top;
+	bottom: $bottom;
+	left: $left;
+	right: $right;
 }
