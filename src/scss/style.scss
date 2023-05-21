@@ -92,16 +92,20 @@ body {
 	}
 }
 nav {
-	@extend %absolute-0;
+	transition: ease-in 0.35s;
+	position: fixed;
+	top: 0;
 	right: 0;
-	margin: 2vh 10vw;
+	left: 0;
+	z-index: 10;
+	padding: 2vh 10vw;
 	@include flexbox(space-between, center);
 	li {
 		list-style: none;
 		a {
 			position: relative;
 			@extend %no_decoration;
-			color: white;
+			color: $white;
 			font-family: $demibold;
 			font-size: 1.2rem;
 			margin-right: 4vw;
@@ -119,6 +123,26 @@ nav {
 			}
 		}
 	}
+}
+
+.scroll_up nav {
+	background-color: $white;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+	// transform: translateY(0);
+	li > a {
+		color: $blackcolor;
+		&::before {
+			background-color: $blackcolor;
+		}
+	}
+}
+.scroll_down nav {
+	color: $blackcolor;
+	transform: translateY(-100%);
+	li > a {
+		color: $blackcolor;
+	}
+	// background-color: #9ba2ff;
 }
 
 .button_contact {
