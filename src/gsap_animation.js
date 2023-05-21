@@ -3,9 +3,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.to(".status_automate", {
+gsap.to("#status_automate", {
 	scrollTrigger: {
-		trigger: ".status_automate",
+		trigger: "#status_automate",
 		markers: true,
 		start: "bottom center",
 		scrub: 2,
