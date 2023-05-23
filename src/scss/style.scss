@@ -2,6 +2,34 @@
 @import "./_mixins.scss";
 @import "./_placeholders.scss";
 
+.section {
+	@extend %flex-center;
+	position: relative;
+	padding: 0 10vw;
+	min-height: 100vh;
+}
+
+.title_background {
+	line-height: 77%;
+	font-family: $extrabold;
+	font-size: clamp(4rem, 1rem + 20vw, 25rem);
+	text-transform: uppercase;
+	color: $blackcolor;
+	opacity: 0.1;
+	z-index: 0;
+}
+.button_white {
+	@extend %flex-center;
+	@extend %button_redirection;
+	z-index: 5;
+	line-height: normal;
+}
+
+.second_part_title {
+	padding-top: 5%;
+	color: $white;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -29,24 +57,61 @@ html {
 
 body {
 	background-color: $blackcolor;
+	overflow-y: hidden;
 	overflow-x: hidden;
 }
 
-.title_name {
-	color: white;
-	text-transform: uppercase;
-	text-decoration: none;
-	font-family: "quanta-regular";
-	letter-spacing: 0.05em;
-	font-weight: 700;
-	font-size: 2rem;
-	mix-blend-mode: difference;
+.loading_section {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	height: 100vh;
+	width: 100vw;
+	background-color: black;
+	overflow-y: hidden;
+	overflow: hidden;
+	@extend %flex-center;
+}
+.fondu_out {
+	opacity: 0;
+	transition: all 0.25s ease-in;
+}
+.loader.active {
+	border: 16px solid $white;
+	width: clamp(10rem, 10rem + 10vw, 20rem);
+	height: clamp(10rem, 10rem + 10vw, 20rem);
+	border-radius: 50%;
+	animation: loading-anim 4s linear infinite;
+	p {
+		color: white;
+	}
 }
 
-.section {
-	padding: 0 10vw;
-	// width: 100vw;
-	min-height: 100vh;
+@keyframes loading-anim {
+	0% {
+		transform: rotate(0deg); //scale(1);
+		border-top-color: $purple;
+		border-bottom-color: $purple;
+	}
+	// 25% {
+	// 	border-top-color: $blackcolor;
+	// 	border-bottom-color: $blackcolor;
+	// }
+	50% {
+		transform: rotate(360deg); // scale(1.15);
+		border-top-color: $purple;
+		border-bottom-color: $purple;
+	}
+	// 75% {
+	// 	border-top-color: $blackcolor;
+	// 	border-bottom-color: $blackcolor;
+	// }
+	100% {
+		transform: rotate(720deg) scale(1);
+		border-top-color: $purple;
+		border-bottom-color: $purple;
+	}
 }
 
 .section_0 {
@@ -91,6 +156,23 @@ body {
 		z-index: -2;
 	}
 }
+.scroll_up nav {
+	background-color: $white;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+	li > a {
+		color: $blackcolor;
+		&::before {
+			background-color: $blackcolor;
+		}
+	}
+}
+.scroll_down nav {
+	color: $blackcolor;
+	transform: translateY(-100%);
+	li > a {
+		color: $blackcolor;
+	}
+}
 nav {
 	transition: ease-in 0.35s;
 	position: fixed;
@@ -125,26 +207,6 @@ nav {
 	}
 }
 
-.scroll_up nav {
-	background-color: $white;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
-	// transform: translateY(0);
-	li > a {
-		color: $blackcolor;
-		&::before {
-			background-color: $blackcolor;
-		}
-	}
-}
-.scroll_down nav {
-	color: $blackcolor;
-	transform: translateY(-100%);
-	li > a {
-		color: $blackcolor;
-	}
-	// background-color: #9ba2ff;
-}
-
 .button_contact {
 	@extend %button_with_border;
 }
@@ -153,43 +215,18 @@ nav {
 	@extend %text_button_with_border;
 }
 .section_1 {
-	position: relative;
+	color: $blackcolor;
 	background-color: $purple;
-	color: white;
-	font-family: "fontspring_bold";
-	@include flexbox(center, start);
 	.contain_all_section_1 {
-		// height: 100%;
-		padding: 10vh 8vw;
-		position: relative;
 		@extend %flex-center;
-		.left_section {
+		min-height: 500px;
+		height: 10vh;
+		.title_part_about {
 			flex: 1;
-			position: relative;
-			top: -3.5vh;
-			font-family: fontspring_extrabold;
-			.title_in_left_section {
-				position: relative;
-				margin-bottom: 20rem;
-				text-transform: uppercase;
-				.About {
-					font-size: 8rem;
-					color: $blackcolor;
-				}
-				.Me {
-					@extend %absolute;
-					top: 7rem;
-					right: 0;
-					font-size: 8rem;
-					color: $white;
-				}
-			}
-			.button_cv {
-				// margin-top: 10vh;
-				position: relative;
-				@extend %flex-center;
-				@extend %button_redirection;
-				z-index: 5;
+			height: 100%;
+			@include flexbox(space-between, stretch, column);
+			div {
+				@include flexbox(center, end, column);
 			}
 		}
 	}
@@ -197,108 +234,73 @@ nav {
 
 .vertical_separation {
 	width: 5px;
+	// min-height: 500px;
 	height: 100%;
 	background-color: $blackcolor;
 	opacity: 10%;
-	margin: 5vh 5vw 0 5vw;
+	margin: 0vh 5vw 0 5vw;
 }
 
-.scroll_about {
+.contain_gradient_scroll {
+	flex: 3;
 	position: relative;
-	flex: 2;
-	font-family: $book;
-	color: $blackcolor;
-	@include flexbox(center, stretch);
-	font-size: 2rem;
-	height: 35rem;
-	line-height: 30px;
-	letter-spacing: -0.01em;
-	text-align: left;
-	overflow: hidden;
-	overflow-y: scroll;
-	.scrool_content {
+	.scroll_about {
+		position: relative;
+		// flex: 5;
+		font-family: $book;
+		@include flexbox(center, stretch);
+		font-size: 2rem;
+		height: 35rem;
+		line-height: 30px;
+		letter-spacing: -0.01em;
+		text-align: left;
+		overflow: hidden;
+		overflow-y: scroll;
 	}
-}
-.contain_scroll {
-	position: relative;
-}
-.gradient_scroll {
-	@extend %absolute;
-	bottom: 0;
-	left: 0;
-	height: 5rem;
-	width: 100%;
-	background: linear-gradient(180deg, rgba(155, 162, 255, 0) 0%, #9ba2ff 100%);
+	.gradient_scroll {
+		@extend %absolute;
+		bottom: 0;
+		left: 0;
+		height: 5rem;
+		width: 100%;
+		background: linear-gradient(180deg, rgba(155, 162, 255, 0) 0%, #9ba2ff 100%);
+	}
 }
 
 .about_background {
-	position: relative;
-	top: -224px;
-	padding-left: 12rem;
-	font-size: 20rem;
-	text-transform: uppercase;
-	color: #242424;
-	opacity: 10%;
-	z-index: 0;
+	@include absolute(null, 0, null, -5%);
 }
 
 .column_about {
 	@include flexbox(center, center, column);
 }
 
-.section_2 {
-	position: relative;
-	@extend %flex-center;
-}
 .section_3 {
-	// padding: 0 5vw;
-	position: relative;
+	color: $blackcolor;
 	background-color: $purple;
 	@extend %flex-center;
 	.contain_last_project {
 		max-height: 100vh;
-		// min-height: 70vh;
 		min-height: 600px;
-		// max-width: 100vw;
-		// max-height: 600px;
-		// height: 100vh;
-		flex: 2;
-		// gap: 100px;
 		@include flexbox(space-between, start, column);
-		.title_last {
-			margin: 0;
-			padding: 0;
-			font-family: "fontspring_bold";
-			font-size: clamp(3rem, 4rem + 4vw, 8rem);
-			line-height: 80%;
-			color: $blackcolor;
-			text-transform: uppercase;
-		}
 		.presentation_project {
 			max-width: 700px;
 			font-family: $book;
-			color: $blackcolor;
 			@include flexbox(center, stretch);
 			font-size: clamp(0.75rem, 0.75rem + 2vw, 2rem);
-			line-height: 30px;
-			letter-spacing: -0.01rem;
-			text-align: left;
+			line-height: 120%;
 		}
 	}
 }
-
-.title_project {
+.contain_title_part {
+	line-height: 83%;
 	font-size: clamp(3rem, 4rem + 4vw, 8rem);
-	line-height: 80%;
-	font-family: "fontspring_extrabold";
-	color: $white;
+	font-family: $extrabold;
 	text-transform: uppercase;
 }
+
 .button_kalastr {
-	@extend %flex-center;
-	@extend %button_redirection;
 	max-width: 350px;
-	z-index: 2;
 }
 .container_mockup {
 	width: clamp(20rem, 20rem + 25vw, 50rem);
@@ -306,32 +308,20 @@ nav {
 	position: relative;
 }
 
-.in_contain_section_3 {
-	@extend %flex-center;
-}
-
 @media screen and (max-width: 768px) {
-	.section_3 {
+	.section {
 		display: block;
 	}
 	.in_contain_section_3 {
 		display: block;
 	}
+	.contain_all_section_1 {
+		display: block;
+	}
 }
 
-.title_backround {
-	line-height: 77%;
-	margin-block-end: 0;
-	margin-block-start: 0;
-	margin: 0;
-	font-family: $extrabold;
+.project_background {
 	@include absolute(null, 0, null, -15%);
-	// font-size: 25rem;
-	font-size: clamp(4rem, 1rem + 20vw, 25rem);
-	text-transform: uppercase;
-	color: $blackcolor;
-	opacity: 0.1;
-	z-index: 0;
 }
 
 .phone {
