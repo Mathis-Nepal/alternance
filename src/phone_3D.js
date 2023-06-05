@@ -107,13 +107,12 @@ window.addEventListener("resize", () => {
 	if (container_mockup.clientWidth < 400) {
 		secondPhone.scene.position.z = -0.35;
 		firstPhone.scene.position.z = -0.75;
-		console.log(container_mockup.clientWidth);
 	} else {
 		secondPhone.scene.position.z = 0.1;
 		firstPhone.scene.position.z = -0.3;
 	}
 
-	console.log(moddifyFirstWidth);
+	
 	cameraPhone.aspect = sizeFirstPhone.width / sizeFirstPhone.height;
 	cameraPhone.updateProjectionMatrix();
 	rendererFirstPhone.setSize(sizeFirstPhone.width, sizeFirstPhone.height);
