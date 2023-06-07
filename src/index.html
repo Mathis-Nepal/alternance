@@ -4,85 +4,115 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<!-- <link rel="preconnect" href="https://fonts.googleapis.com" /> -->
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Carlito:wght@400;700&display=swap" rel="stylesheet" />
 		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 		<title>ThreeJS Starter</title>
 	</head>
 	<body>
+		<section class="loading_section">
+			<div class="loader"></div>
+			<p>Chargement...</p>
+		</section>
 		<section class="section_0">
-			<nav data-aos="fade-down" data-aos-duration="1000">
+			<nav data-aos-duration="1000">
 				<li><a href="">Home</a><a href="">About me</a><a href="">Skills</a><a href="">Last project</a></li>
 				<a href="#" class="button_contact">Contact </a>
 			</nav>
-			<div class="contain_name_title">
-				<div id="first_last_name" class="title">
-					<h1>
-						Vous cherchez un
-						<span class="alternant">
-							alternant
-							<span id="status_automate">?</span>
-						</span>
-					</h1>
-
-					<div class="line">&nbsp;</div>
-				</div>
-				<!-- <p class="inferieur_title" id="inferieur_title"></p> -->
+			<div id="first_last_name" class="title">
+				<h1>
+					Vous cherchez un
+					<span class="alternant">alternant&nbsp;<span id="status_automate">?</span></span>
+				</h1>
+				<div class="line">&nbsp;</div>
 			</div>
-			<img src="cubepattern.png" alt="" />
-
-			<!-- <canvas id="sphere" class="sphere"></canvas> -->
+			<img src="../static/assets/images/pattern.svg" alt="" />
 		</section>
-		<section class="section_1">
-			<div class="column_about">
-				<div class="contain_all_section_1">
-					<div class="left_section">
-						<div class="title_in_left_section">
-							<h3 class="About">About</h3>
-							<h3 class="Me">Me</h3>
-						</div>
-						<a href="#" class="button_cv">Download CV</a>
-					</div>
-
-					<div class="vertical_separation">&nbsp;</div>
-
-					<div class="contain_scroll">
-						<div class="scroll_about">
-							<div class="scroll_content">
-								Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi ratione excepturi corporis optio quaerat dolorem ut dolorum amet, assumenda harum ad nam ullam totam eos quae vel, voluptatem odit perspiciatis! Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-								Modi ratione excepturi corporis optio quaerat dolorem ut dolorum amet, assumenda harum ad nam ullam totam eos quae vel, voluptatem odit perspiciatis! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi ratione excepturi corporis optio quaerat dolorem ut
-								dolorum amet, assumenda harum ad nam ullam totam eos quae vel, voluptatem odit perspiciatis! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi ratione excepturi corporis optio quaerat dolorem ut dolorum amet, assumenda harum ad nam ullam totam eos quae
-								vel, voluptatem odit perspiciatis! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi ratione excepturi corporis optio quaerat dolorem ut dolorum amet, assumenda harum ad nam ullam totam eos quae vel, voluptatem odit perspiciatis! Lorem ipsum dolor sit,
-								amet consectetur adipisicing elit. Modi ratione excepturi corporis optio quaerat dolorem ut dolorum amet, assumenda harum ad nam ullam totam eos quae vel, voluptatem odit perspiciatis! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi ratione excepturi
-								corporis optio quaerat dolorem ut dolorum amet, assumenda harum ad nam ullam totam eos quae vel, voluptatem odit perspiciatis! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi ratione excepturi corporis optio quaerat dolorem ut dolorum amet, assumenda
-								harum ad nam ullam totam eos quae vel, voluptatem odit perspiciatis!
-							</div>
-						</div>
-						<div class="gradient_scroll">&nbsp;</div>
-					</div>
-				</div>
-				<h3 class="about_background">About</h3>
-			</div>
-		</section>
-		<section class="section_2"></section>
-		<section class="section_3">
-			<div class="in_contain_section_3">
-				<div class="contain_last_project">
+		<section class="section section_1">
+			<div class="contain_all_section_1">
+				<div class="contain_title_part title_part_about">
 					<div>
-						<h3 class="title_last">
-							Last
-							<h3 class="title_project">project</h3>
+						<h3>
+							About
+							<h3 class="second_part_title">Me</h3>
 						</h3>
 					</div>
-					<p class="presentation_project">
-						Stage de 4 mois chez Kalastr pour le développement d’une application mobile permettant aux étudiants de communiquer avec des ambassadeurs d’écoles. Et développement d’une interface back office pour les écoles partenaires afin de gérer leurs ambassadeurs
-					</p>
-					<a href="" class="button_kalastr">Discover Kalastr</a>
+
+					<a href="#" class="button_cv button_white">Download CV</a>
 				</div>
-				<div class="container_mockup">
-					<canvas class="phone"></canvas>
+
+				<div class="vertical_separation">&nbsp;</div>
+
+				<div class="contain_gradient_scroll">
+					<div class="scroll_about">
+						<p>
+							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi ratione excepturi corporis optio quaerat dolorem ut dolorum amet, assumenda harum ad nam ullam totam eos quae vel, voluptatem odit perspiciatis! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi
+							ratione excepturi corporis optio quaerat dolorem ut dolorum amet, assumenda harum ad nam ullam totam eos quae vel, voluptatem odit perspiciatis! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi ratione excepturi corporis optio quaerat dolorem ut dolorum
+							amet, assumenda harum ad nam ullam totam eos quae vel, voluptatem odit perspiciatis! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi ratione excepturi corporis optio quaerat dolorem ut dolorum amet, assumenda harum ad nam ullam totam eos quae vel,
+							voluptatem odit perspiciatis! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi ratione excepturi corporis optio quaerat dolorem ut dolorum amet, assumenda harum ad nam ullam totam eos quae vel, voluptatem odit perspiciatis! Lorem ipsum dolor sit, amet
+							consectetur adipisicing elit. Modi ratione excepturi corporis optio quaerat dolorem ut dolorum amet, assumenda harum ad nam ullam totam eos quae vel, voluptatem odit perspiciatis! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi ratione excepturi corporis
+							optio quaerat dolorem ut dolorum amet, assumenda harum ad nam ullam totam eos quae vel, voluptatem odit perspiciatis! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi ratione excepturi corporis optio quaerat dolorem ut dolorum amet, assumenda harum ad nam
+							ullam totam eos quae vel, voluptatem odit perspiciatis!
+						</p>
+					</div>
+					<div class="gradient_scroll">&nbsp;</div>
 				</div>
+			</div>
+			<h3 class="title_background about_background">About</h3>
+		</section>
+		<section class="contain_all_section_2">
+			<div class="blur"></div>
+			<div class="blob"></div>
+			<section class="section section_2">
+				<div class="cube_container">
+					<canvas class="cube"></canvas>
+					<p>Drag it</p>
+				</div>
+				<div class="contain_title_part">
+					<h3 class="title_white">
+						Hard
+						<h3 class="second_part_title">Skills</h3>
+					</h3>
+				</div>
+			</section>
+			<section class="section section_2-2">
+				<div class="contain_all_section_2-2">
+					<div class="contain_title_part">
+						<h3 class="title_white">
+							Soft Skills <span>:</span>
+							<!-- <h3 class="second_part_title">Skills</h3> -->
+						</h3>
+					</div>
+					<div class="contain_bloc_soft_skills">
+						<div class="soft_skill">Créativité</div>
+						<div class="soft_skill">Adaptabilité</div>
+						<div class="soft_skill">Communication</div>
+						<div class="soft_skill">Travail d'équipe</div>
+						<div class="soft_skill">Esprit Critique</div>
+						<div class="soft_skill">Soucis du détail</div>
+						<div class="soft_skill">Agilité</div>
+					</div>
+				</div>
+			</section>
+		</section>
+
+		<section class="section section_3">
+			<div class="contain_last_project">
+				<div class="contain_title_part">
+					<h3>
+						Last
+						<h3 class="second_part_title">project</h3>
+					</h3>
+				</div>
+				<p class="presentation_project">
+					Stage de 4 mois chez Kalastr pour le développement d’une application mobile permettant aux étudiants de communiquer avec des ambassadeurs d’écoles. Et développement d’une interface back office pour les écoles partenaires afin de gérer leurs ambassadeurs
+				</p>
+				<a href="#" class="button_kalastr button_white">Discover Kalastr</a>
+				<h4 class="title_background project_background">PROJECT</h4>
+			</div>
+			<div class="container_mockup">
+				<canvas class="phone"></canvas>
 			</div>
 		</section>
 
