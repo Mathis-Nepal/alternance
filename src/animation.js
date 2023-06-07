@@ -3,6 +3,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// animation section_0 du point d'intérogation
+
 gsap.to("#status_automate", {
 	scrollTrigger: {
 		trigger: ".section_0",
@@ -32,3 +34,17 @@ addEventListener("scroll", function () {
 
 	scrollNull = scroll;
 });
+
+// animation section_0 du point title
+let titleAnimationTimeline = gsap.timeline({ defaults: { ease: "SlowMo.easeOut" } });
+
+titleAnimationTimeline.to("#animation-title", {
+	y: "0%",
+	duration: 0.5,
+	stagger: 0.5,
+});
+titleAnimationTimeline.to(".text-contain-part-title", {
+	overflow: "visible",
+});
+
+gsap.to("#animation-title", {});

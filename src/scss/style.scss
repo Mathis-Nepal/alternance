@@ -129,28 +129,40 @@ body {
 		z-index: 2;
 		position: relative;
 		line-height: 1.2;
-		h1 {
+		.text-contain-first-part-title {
+			overflow: hidden;
 			font-family: "fontspring_bold";
 			font-size: clamp(2rem, 4rem + 4vw, 8rem);
+			.oui {
+				display: inline-block;
+				transform: translateY(100%);
+			}
 		}
-		.alternant {
-			font-family: "fontspring_extrabold";
-			font-size: clamp(2rem, 4rem + 5vw, 9rem);
-			color: $purple;
-			#status_automate {
-				position: relative;
-				// &::before {
-				// 	content: "";
-				// 	@extend %absolute;
-				// 	display: flex;
-				// 	width: 1.59rem;
-				// 	height: 300%;
-				// 	background-color: #9ba2ff;
-				// 	top: 64%;
-				// 	right: 1.66rem;
-				// 	z-index: -1;
-				// 	border-radius: 9px;
-				// }
+		.text-contain-second-part-title {
+			overflow: hidden;
+			font-family: "fontspring_bold";
+			font-size: clamp(2rem, 4rem + 4vw, 8rem);
+			.alternant {
+				display: inline-block;
+				transform: translateY(100%);
+				font-family: "fontspring_extrabold";
+				font-size: clamp(2rem, 4rem + 5vw, 9rem);
+				color: $purple;
+				#status_automate {
+					position: relative;
+					// &::before {
+					// 	content: "";
+					// 	@extend %absolute;
+					// 	display: flex;
+					// 	width: 1.59rem;
+					// 	height: 300%;
+					// 	background-color: #9ba2ff;
+					// 	top: 64%;
+					// 	right: 1.66rem;
+					// 	z-index: -1;
+					// 	border-radius: 9px;
+					// }
+				}
 			}
 		}
 	}
