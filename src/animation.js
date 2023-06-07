@@ -8,11 +8,10 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.to("#status_automate", {
 	scrollTrigger: {
 		trigger: ".section_0",
-		// markers: true,
-		start: "70% center",
+		start: "80% center",
 		scrub: 2,
 		endTrigger: ".section_1",
-		end: "top center",
+		end: "25% center",
 	},
 	top: 500,
 });
@@ -46,5 +45,3 @@ titleAnimationTimeline.to("#animation-title", {
 titleAnimationTimeline.to(".text-contain-part-title", {
 	overflow: "visible",
 });
-
-gsap.to("#animation-title", {});
