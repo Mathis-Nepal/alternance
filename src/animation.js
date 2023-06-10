@@ -65,25 +65,3 @@ document.querySelector(".button-skills").addEventListener("click", function () {
 document.querySelector(".button-project").addEventListener("click", function () {
 	animationTitle(".section_3");
 });
-
-// document.querySelector(".button-about").addEventListener("click", function () {
-// 	var ancre = document.querySelector(".section_1");
-
-// 	ancre.scrollIntoView({
-// 		behavior: "smooth",
-// 	});
-// });
-// document.querySelector(".button-skills").addEventListener("click", function () {
-// 	var ancre = document.querySelector(".section_2");
-
-// 	ancre.scrollIntoView({
-// 		behavior: "smooth",
-// 	});
-// });
-// document.querySelector(".button-project").addEventListener("click", function () {
-// 	var ancre = document.querySelector(".section_3");
-
-// 	ancre.scrollIntoView({
-// 		behavior: "smooth",
-// 	});
-// });

@@ -188,6 +188,7 @@ nav {
 	transition: ease-in 0.35s;
 	position: fixed;
 	top: 0;
+	white-space: nowrap;
 	right: 0;
 	left: 0;
 	z-index: 10;
@@ -401,6 +402,7 @@ nav {
 	font-family: $extrabold;
 	text-transform: uppercase;
 	.title_white {
+		white-space: nowrap;
 		color: $white;
 		span {
 			color: $purple;
@@ -417,18 +419,6 @@ nav {
 	position: relative;
 }
 
-@media screen and (max-width: 768px) {
-	.section {
-		display: block;
-	}
-	.in_contain_section_3 {
-		display: block;
-	}
-	.contain_all_section_1 {
-		display: block;
-	}
-}
-
 .project_background {
 	@include absolute(null, 0, null, -15%);
 }
@@ -440,4 +430,18 @@ nav {
 footer {
 	background-color: $white;
 	min-height: 50vh;
+}
+
+@media screen and (max-width: 768px) {
+	.section {
+		padding: 2rem;
+		display: block;
+	}
+	.in_contain_section_3 {
+		display: block;
+	}
+	.contain_all_section_1 {
+		// display: flex;
+		flex-direction: column;
+	}
 }

@@ -12,6 +12,8 @@ const scene = new THREE.Scene();
 const GltfLoader = new GLTFLoader();
 let element = document.querySelector(".cube");
 
+gui.close();
+
 let size = {
 	width: element.clientWidth,
 	height: element.clientHeight,
