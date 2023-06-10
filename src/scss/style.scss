@@ -98,19 +98,11 @@ body {
 		border-top-color: $purple;
 		border-bottom-color: $purple;
 	}
-	// 25% {
-	// 	border-top-color: $blackcolor;
-	// 	border-bottom-color: $blackcolor;
-	// }
 	50% {
 		transform: rotate(360deg); // scale(1.15);
 		border-top-color: $purple;
 		border-bottom-color: $purple;
 	}
-	// 75% {
-	// 	border-top-color: $blackcolor;
-	// 	border-bottom-color: $blackcolor;
-	// }
 	100% {
 		transform: rotate(720deg) scale(1);
 		border-top-color: $purple;
@@ -205,6 +197,7 @@ nav {
 		list-style: none;
 		a {
 			position: relative;
+			cursor: pointer;
 			@extend %no_decoration;
 			color: $white;
 			font-family: $demibold;
