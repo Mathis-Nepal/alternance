@@ -19,22 +19,18 @@ let size = {
 	height: element.clientHeight,
 };
 
-// let moddifyFirstWidth = sizeFirstPhone.width * 0.0004;
+// let scale = size.width / 2600;
+const maxScale = 0.25;
+const minScale = 0.17;
+let scale = Math.min(Math.max(size.width / 2600, minScale), maxScale);
+console.log(scale);
 
-// var folderCube = gui.addFolder("CUBE");
+// sizeGltf = size.width * scale;
+
 GltfLoader.load("assets/cube/cube.gltf", (gltf) => {
 	cube = gltf;
-	gltf.scene.scale.set(0.25, 0.25, 0.25);
+	gltf.scene.scale.set(scale, scale, scale);
 	gltf.scene.rotation.set(0, 0.37, 3.13);
-	// gltf.scene.position.set(0, 0.47, -0.3);
-	gltf.scene.position.set(0, 0, 0);
-	gui.add(gltf.scene.position, "x").min(-6).max(9).step(0.01);
-	gui.add(gltf.scene.position, "y").min(-6).max(9).step(0.01);
-	gui.add(gltf.scene.position, "z").min(-6).max(9).step(0.01);
-	gui.add(gltf.scene.rotation, "x").min(-6).max(9).step(0.01);
-	gui.add(gltf.scene.rotation, "y").min(-6).max(9).step(0.01);
-	gui.add(gltf.scene.rotation, "z").min(-6).max(9).step(0.01);
-
 	scene.add(gltf.scene);
 });
 
@@ -66,19 +62,9 @@ controls.rotateSpeed = 0.25;
 window.addEventListener("resize", () => {
 	size.width = container.clientWidth;
 	size.height = container.clientHeight;
-
-	// moddifyFirstWidth = container_mockup.clientWidth * 0.0004;
-
-	// if (container_mockup.clientWidth < 400) {
-	// 	secondPhone.scene.position.z = -0.35;
-	// 	firstPhone.scene.position.z = -0.75;
-	// 	console.log(container_mockup.clientWidth);
-	// } else {
-	// 	secondPhone.scene.position.z = 0.1;
-	// 	firstPhone.scene.position.z = -0.3;
-	// }
-
-	// console.log(moddifyFirstWidth);
+	let scale = Math.min(Math.max(size.width / 2600, minScale), maxScale);
+	
+	cube.scene.scale.set(scale, scale, scale);
 	camera.aspect = size.width / size.height;
 	camera.updateProjectionMatrix();
 	rendererFirstPhone.setSize(size.width, size.height);

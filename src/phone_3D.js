@@ -21,14 +21,18 @@ let sizeFirstPhone = {
 	height: elementPhone.clientHeight,
 };
 
-let moddifyFirstWidth = sizeFirstPhone.width * 0.0004;
+const maxScale = -0.3;
+const minScale = -5;
+let scale = Math.min(Math.max(-sizeFirstPhone.width / 100, minScale), maxScale);
+console.log(0.1 / -0.3);
+console.log(-0.3 / 0.1);
 
 var folderFirstPhone = gui.addFolder("PHONE 1");
 firstPhoneLoader.load("assets/phone_1/phone_1.gltf", (gltf) => {
 	firstPhone = gltf;
 	gltf.scene.scale.set(0.25, 0.25, 0.25);
 	gltf.scene.rotation.set(0, -1.5, 0);
-	gltf.scene.position.set(0, 1, -0.3);
+	gltf.scene.position.set(0, 1, scale);
 	folderFirstPhone.add(gltf.scene.position, "x").min(-6).max(9).step(0.01);
 	folderFirstPhone.add(gltf.scene.position, "y").min(-6).max(9).step(0.01);
 	folderFirstPhone.add(gltf.scene.position, "z").min(-6).max(9).step(0.01);
@@ -102,7 +106,7 @@ window.addEventListener("resize", () => {
 	sizeFirstPhone.width = container_mockup.clientWidth;
 	sizeFirstPhone.height = container_mockup.clientHeight;
 
-	moddifyFirstWidth = container_mockup.clientWidth * 0.0004;
+	// moddifyFirstWidth = container_mockup.clientWidth * 0.0004;
 
 	if (container_mockup.clientWidth < 400) {
 		secondPhone.scene.position.z = -0.35;
@@ -112,7 +116,6 @@ window.addEventListener("resize", () => {
 		firstPhone.scene.position.z = -0.3;
 	}
 
-	
 	cameraPhone.aspect = sizeFirstPhone.width / sizeFirstPhone.height;
 	cameraPhone.updateProjectionMatrix();
 	rendererFirstPhone.setSize(sizeFirstPhone.width, sizeFirstPhone.height);
