@@ -14,18 +14,20 @@ let element = document.querySelector(".cube");
 
 gui.close();
 
-let size = {
-	width: element.clientWidth,
-	height: element.clientHeight,
-};
+let size;
+let scale;
 
-// let scale = size.width / 2600;
+function resizing() {
+	size = {
+		width: container.clientWidth,
+		height: container.clientHeight,
+	};
+	scale = Math.min(Math.max(size.width / 2600, minScale), maxScale);
+}
+
 const maxScale = 0.25;
 const minScale = 0.17;
-let scale = Math.min(Math.max(size.width / 2600, minScale), maxScale);
-console.log(scale);
-
-// sizeGltf = size.width * scale;
+resizing();
 
 GltfLoader.load("assets/cube/cube.gltf", (gltf) => {
 	cube = gltf;
@@ -60,15 +62,12 @@ controls.autoRotateSpeed = 2.0;
 controls.rotateSpeed = 0.25;
 
 window.addEventListener("resize", () => {
-	size.width = container.clientWidth;
-	size.height = container.clientHeight;
-	let scale = Math.min(Math.max(size.width / 2600, minScale), maxScale);
-	
+	resizing();
 	cube.scene.scale.set(scale, scale, scale);
 	camera.aspect = size.width / size.height;
 	camera.updateProjectionMatrix();
-	rendererFirstPhone.setSize(size.width, size.height);
-	rendererFirstPhone.render(scene, camera);
+	renderer.setSize(size.width, size.height);
+	renderer.render(scene, camera);
 });
 const animate = () => {
 	controls.update();

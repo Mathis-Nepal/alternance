@@ -54,7 +54,7 @@
 	.contain_last_project {
 		display: block !important;
 		min-height: auto !important;
-		gap: 2rem;
+		gap: 3rem;
 		.contain_title_part {
 			margin-bottom: 2rem;
 		}
@@ -203,18 +203,6 @@ body {
 				color: $purple;
 				#status_automate {
 					position: relative;
-					// &::before {
-					// 	content: "";
-					// 	@extend %absolute;
-					// 	display: flex;
-					// 	width: 1.59rem;
-					// 	height: 300%;
-					// 	background-color: #9ba2ff;
-					// 	top: 64%;
-					// 	right: 1.66rem;
-					// 	z-index: -1;
-					// 	border-radius: 9px;
-					// }
 				}
 			}
 		}
