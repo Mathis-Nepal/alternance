@@ -33,8 +33,6 @@ addEventListener("scroll", function () {
 
 	scrollNull = scroll;
 });
-
-// animation section_0 du point title
 let titleAnimationTimeline = gsap.timeline({ defaults: { ease: "SlowMo.easeOut" } });
 
 titleAnimationTimeline.to("#animation-title", {
@@ -45,6 +43,42 @@ titleAnimationTimeline.to("#animation-title", {
 titleAnimationTimeline.to(".text-contain-part-title", {
 	overflow: "visible",
 });
+
+const sections = [
+	{ trigger: ".section_0", endTrigger: ".section_1" },
+	{ trigger: ".section_1", endTrigger: ".section_2" },
+	{ trigger: ".section_2", endTrigger: ".section_2-2" },
+	{ trigger: ".section_2-2", endTrigger: ".section_3" },
+];
+
+sections.forEach((section, index) => {
+	const animatedTitlePart = `.animated-title-part-${index + 1}`;
+	const animatedTitlePartContainer = `.animated-title-container-${index + 1}`;
+	let titleAnimationTimelineOnScroll = gsap.timeline({
+		scrollTrigger: {
+			trigger: section.trigger,
+			start: "90% center",
+			scrub: 2,
+			endTrigger: section.endTrigger,
+			end: "30% center",
+			markers: true,
+			// animation: titleAnimationTimelineOnScroll,
+			// immediateRender: false,
+		},
+	});
+
+	titleAnimationTimelineOnScroll.to(animatedTitlePart, {
+		transform: "translateY(0)",
+		opacity: 1,
+		stagger: 0.5,
+	});
+
+	titleAnimationTimelineOnScroll.to(animatedTitlePartContainer, {
+		overflow: "visible",
+	});
+});
+
+//smooth scroll on click on element in navabar
 
 function animationTitle(button) {
 	var ancre = document.querySelector(button);

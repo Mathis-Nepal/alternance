@@ -36,18 +36,18 @@
 }
 
 %button_with_border {
+	overflow: hidden;
 	position: relative;
 	@extend %flex-center;
-	// border: 2px solid white;
 	width: 10vw;
 	font-family: "fontspring_demibold";
 	text-decoration: none;
-	padding: 5px 10px;
+	padding: 10px 10px;
 	background-color: $purple;
 	color: $white;
-	// mix-blend-mode: difference;
 	aspect-ratio: 6/1;
 	border-radius: 50px;
+	z-index: 3;
 	&::before {
 		@extend %absolute-0;
 		content: "";
