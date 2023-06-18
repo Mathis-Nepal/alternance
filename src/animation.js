@@ -57,7 +57,7 @@ sections.forEach((section, index) => {
 	let titleAnimationTimelineOnScroll = gsap.timeline({
 		scrollTrigger: {
 			trigger: section.trigger,
-			start: "90% center",
+			start: "50% center",
 			scrub: 2,
 			endTrigger: section.endTrigger,
 			end: "30% center",
@@ -78,7 +78,7 @@ sections.forEach((section, index) => {
 	});
 });
 
-//smooth scroll on click on element in navabar
+//smooth scroll on click on element in navbar
 
 function animationTitle(button) {
 	var ancre = document.querySelector(button);
@@ -89,13 +89,38 @@ function animationTitle(button) {
 
 document.querySelector(".button-home").addEventListener("click", function () {
 	animationTitle(".section_0");
+	quitNav();
 });
 document.querySelector(".button-about").addEventListener("click", function () {
 	animationTitle(".section_1");
+	quitNav();
 });
 document.querySelector(".button-skills").addEventListener("click", function () {
 	animationTitle(".section_2");
+	quitNav();
 });
 document.querySelector(".button-project").addEventListener("click", function () {
 	animationTitle(".section_3");
+	quitNav();
+});
+
+// Navbar = document.querySelector("nav");
+const menuBurger = document.querySelector(".menu-toggle");
+const nav = document.querySelector("nav");
+
+function quitNav() {
+	if (nav.classList.contains("is-active")) {
+		menuBurger.classList.remove("is-active");
+		nav.classList.remove("is-active");
+	}
+}
+
+menuBurger.addEventListener("click", function () {
+	if (menuBurger.classList.contains("is-active")) {
+		menuBurger.classList.remove("is-active");
+		nav.classList.remove("is-active");
+	} else {
+		menuBurger.classList.add("is-active");
+		nav.classList.add("is-active");
+	}
 });

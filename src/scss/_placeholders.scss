@@ -39,10 +39,10 @@
 	overflow: hidden;
 	position: relative;
 	@extend %flex-center;
-	width: 10vw;
+	width: clamp(10rem, 5rem + 15vw, 15rem);
 	font-family: "fontspring_demibold";
 	text-decoration: none;
-	padding: 10px 10px;
+	padding: 0px 5px;
 	background-color: $purple;
 	color: $white;
 	aspect-ratio: 6/1;
