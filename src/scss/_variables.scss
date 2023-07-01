@@ -15,6 +15,8 @@
 	src: url(../../static/assets/fonts/stolzl/Stolzl_Book.ttf) format("opentype");
 }
 
+$widthMenuToggle: clamp(0.5rem, 0.5rem + 5vw, 2rem);
+
 //color
 
 $buttonWidth: 30px;

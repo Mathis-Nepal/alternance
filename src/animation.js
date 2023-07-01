@@ -49,6 +49,7 @@ const sections = [
 	{ trigger: ".section_1", endTrigger: ".section_2" },
 	{ trigger: ".section_2", endTrigger: ".section_2-2" },
 	{ trigger: ".section_2-2", endTrigger: ".section_3" },
+	{ trigger: ".section_3", endTrigger: ".section_4" },
 ];
 
 sections.forEach((section, index) => {
@@ -57,13 +58,11 @@ sections.forEach((section, index) => {
 	let titleAnimationTimelineOnScroll = gsap.timeline({
 		scrollTrigger: {
 			trigger: section.trigger,
-			start: "50% center",
+			start: "80% center",
 			scrub: 2,
 			endTrigger: section.endTrigger,
-			end: "30% center",
-			markers: true,
-			// animation: titleAnimationTimelineOnScroll,
-			// immediateRender: false,
+			end: "50% center",
+			// markers: true,
 		},
 	});
 
@@ -104,8 +103,7 @@ document.querySelector(".button-project").addEventListener("click", function () 
 	quitNav();
 });
 
-// Navbar = document.querySelector("nav");
-const menuBurger = document.querySelector(".menu-toggle");
+const menuBurger = document.querySelector(".container-menu-toggle");
 const nav = document.querySelector("nav");
 
 function quitNav() {

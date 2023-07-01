@@ -38,7 +38,7 @@
 						<h3 class="animated-title-container-1"><span class="animated-title-part-1">About</span></h3>
 						<h3 class="second_part_title animated-title-container-1"><span class="animated-title-part-1">Me</span></h3>
 					</div>
-					<a href="/assets/images/CV.pdf" target="_blank" class="button_cv button_white">SEE MY CV</a>
+					<a href="/assets/images/CV.pdf" target="_blank" class="button_white">C.V.</a>
 					<!-- <iframe src="/assets/images/CV.pdf" width="100%" height="500px"></iframe> -->
 
 					<!-- <img src="/static/assets/images/CV.pdf" alt="" /> -->
@@ -105,7 +105,8 @@
 					<h3 class="second_part_title animated-title-container-4"><span class="animated-title-part-4">project</span></h3>
 				</div>
 				<p class="presentation_project">
-					Stage de 4 mois chez Kalastr pour le développement d’une application mobile permettant aux étudiants de communiquer avec des ambassadeurs d’écoles. Et développement d’une interface back office pour les écoles partenaires afin de gérer leurs ambassadeurs
+					Stage de 4 mois chez Kalastr pour le développement d’une application mobile permettant aux étudiants de communiquer avec des ambassadeurs d’écoles. Et développement d’une interface back office pour les écoles partenaires afin de gérer leurs ambassadeurs. Ainsi que la gestion des
+					déploiements sur l'App Store.
 				</p>
 				<a target="_blank" href="https://www.kalastr.fr/" class="button_kalastr button_white">Discover Kalastr</a>
 				<h4 class="title_background project_background">PROJECT</h4>
@@ -114,7 +115,47 @@
 				<canvas class="phone"></canvas>
 			</div>
 		</section>
+		<section class="section_4">
+			<div class="contain-form">
+				<h3 class="animated-title-container-5 contact-form"><span class="animated-title-part-5 title-soft-skills">Contact</span></h3>
 
-		<footer></footer>
+				<form action="index.php" method="post">
+					<div class="input-first-last-name">
+						<div class="container-pair-label-input">
+							<label class="label" for="prenom">Prénom</label>
+							<input class="input" placeholder="Thierry" type="text" id="prenom" name="prenom" />
+						</div>
+
+						<div class="container-pair-label-input">
+							<label class="label" for="nom">Nom</label>
+							<input class="input" placeholder="Dupont" type="text" id="nom" name="nom" />
+						</div>
+					</div>
+					<div class="container-pair-label-input">
+						<label class="label" for="email">Email <span class="element-required">*</span></label>
+						<input class="input" placeholder="thierry@email.com" type="email" id="email" name="email" required />
+					</div>
+					<div class="container-pair-label-input">
+						<label class="label" for="message">Votre Message <span class="element-required">*</span></label>
+						<textarea class="input" placeholder="Bonjour, je souhaite rentrer un contatc avec vous..." id="message" name="message" rows="4" cols="50" required></textarea>
+					</div>
+
+					<input class="button_contact send-button" type="submit" value="Envoyer" />
+				</form>
+				<div class="contain-separation-form">
+					<div class="separation-form"></div>
+					<p>Or</p>
+					<div class="separation-form"></div>
+				</div>
+				<div class="contain-logo-form">
+					<img class="logo-contact" src="/static/assets/images/logo/linkedin.png" alt="" /><img class="logo-contact" src="/static/assets/images/logo/github.png" alt="" /><img class="logo-contact" src="/static/assets/images/logo/appel.png" alt="" /><img
+						class="logo-contact"
+						src="/static/assets/images/logo/email.png"
+						alt=""
+					/>
+				</div>
+			</div>
+			<img class="circle" src="/static/assets/images/circle.svg" alt="" />
+		</section>
 	</body>
 </html>

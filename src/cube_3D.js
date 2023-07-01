@@ -6,13 +6,13 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 let cube;
 const container = document.querySelector(".cube_container");
 
-const gui = new dat.GUI();
+// const gui = new dat.GUI();
 const scene = new THREE.Scene();
 
 const GltfLoader = new GLTFLoader();
 let element = document.querySelector(".cube");
 
-gui.close();
+// gui.close();
 
 let size;
 let scale;

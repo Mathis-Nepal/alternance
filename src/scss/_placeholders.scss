@@ -24,7 +24,7 @@
 	padding: 0.5rem;
 	width: 100%;
 	color: $blackcolor;
-	font-size: 2rem;
+	font-size: clamp(1rem, 0.5rem + 5vw, 2rem);
 	font-family: $demibold;
 	text-decoration: none;
 	border-radius: 10px;
@@ -39,6 +39,7 @@
 	overflow: hidden;
 	position: relative;
 	@extend %flex-center;
+	// height: 100px;
 	width: clamp(10rem, 5rem + 15vw, 15rem);
 	font-family: "fontspring_demibold";
 	text-decoration: none;
