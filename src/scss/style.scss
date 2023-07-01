@@ -436,9 +436,9 @@ nav {
 		// flex: 5;
 		font-family: $book;
 		@include flexbox(center, stretch);
-		font-size: 2rem;
+		font-size: clamp(1rem, 1rem + 1vw, 2rem);
 		height: 35rem;
-		line-height: 30px;
+		line-height: clamp(1rem, 1rem + 2vw, 2.5rem);
 		letter-spacing: -0.01em;
 		text-align: left;
 		overflow: hidden;
