@@ -27,7 +27,7 @@ jobs:
       - name: Clean gh-pages branch
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{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}}
           publish_branch: gh-pages
           publish_dir: ./
           force_orphan: true
@@ -35,7 +35,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.GITHUB_TOKEN }}
+          personal_token: ${{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}}
           publish_dir: ./dist
           publish_branch: gh-pages
           force_orphan: true
