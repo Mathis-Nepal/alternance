@@ -25,12 +25,12 @@ jobs:
         run: npm run build
 
       - name: Clean gh-pages branch
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git checkout deploy
-          git rm -rf .
-          git commit -m "Clean: Remove previous content"
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./
+          force_orphan: true
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
