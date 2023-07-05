@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-import * as dat from "dat.gui";
+// import * as dat from "dat.gui";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -8,7 +8,7 @@ let firstPhone;
 let secondPhone;
 
 gsap.registerPlugin(ScrollTrigger);
-const gui = new dat.GUI();
+// const gui = new dat.GUI();
 const scenePhone = new THREE.Scene();
 
 const firstPhoneLoader = new GLTFLoader();

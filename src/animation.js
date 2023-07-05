@@ -102,6 +102,10 @@ document.querySelector(".button-project").addEventListener("click", function () 
 	animationTitle(".section_3");
 	quitNav();
 });
+document.querySelector(".ouioui").addEventListener("click", function () {
+	animationTitle(".section_4");
+	// quitNav();
+});
 
 const menuBurger = document.querySelector(".container-menu-toggle");
 const nav = document.querySelector("nav");
