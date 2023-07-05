@@ -31,7 +31,6 @@ jobs:
           git checkout deploy
           git rm -rf .
           git commit -m "Clean: Remove previous content"
-          git push origin --delete deploy
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
