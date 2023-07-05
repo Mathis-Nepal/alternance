@@ -29,7 +29,7 @@ jobs:
         with:
           github_token: ${{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}}
           publish_branch: gh-pages
-          publish_dir: ./
+          publish_dir: /
           force_orphan: true
 
       - name: Deploy to GitHub Pages
