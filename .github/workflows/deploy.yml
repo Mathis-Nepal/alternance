@@ -3,7 +3,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Définissez ici la branche sur laquelle vous souhaitez déclencher le déploiement
+      - main  
+    
+permissions: write-all
 
 jobs:
   deploy:
