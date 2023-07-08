@@ -186,6 +186,7 @@
 	position: relative;
 	padding: 0 10vw;
 	min-height: 100vh;
+	overflow: hidden;
 }
 
 .title_background {
@@ -474,8 +475,9 @@ nav {
 	}
 	.blob {
 		z-index: -2;
-		@extend %absolute;
+		// @extend %absolute;
 		position: absolute;
+
 		aspect-ratio: 1/1;
 		height: clamp(20rem, 20rem + 10vw, 40rem);
 		background-color: $white;
