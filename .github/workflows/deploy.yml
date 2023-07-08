@@ -32,13 +32,13 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Clean gh-pages branch
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: /
-          force_orphan: true
+      # - name: Clean gh-pages branch
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_branch: gh-pages
+      #     publish_dir: /
+      #     force_orphan: true
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
