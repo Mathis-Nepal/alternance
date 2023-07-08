@@ -41,10 +41,13 @@ const blur = document.querySelector(".contain_all_section_2");
 blur.onpointermove = (event) => {
 	const { clientX, clientY } = event;
 	const scrollY = window.scrollY || window.pageYOffset;
+	const maxX = blur.clientWidth;
+	const left = Math.min(Math.max(0, clientX - blob.clientWidth / 2), maxX);
 
 	blob.animate(
 		{
-			left: `${clientX}px`,
+			// position: "absolute", // display: "block",
+			left: `${left}px`,
 			top: `${clientY + scrollY}px`,
 		},
 		{ duration: 3000, fill: "forwards" }
@@ -54,10 +57,14 @@ blur.onpointermove = (event) => {
 blur.onwheel = (event) => {
 	const { clientX, clientY } = event;
 	const scrollY = window.scrollY || window.pageYOffset;
+	const maxX = blur.clientWidth;
+	const left = Math.min(Math.max(0, clientX - blob.clientWidth / 2), maxX);
 
 	blob.animate(
 		{
-			left: `${clientX}px`,
+			// display: "block",
+			// position: "absolute",
+			left: `${left}px`,
 			top: `${clientY + scrollY}px`,
 		},
 		{ duration: 3000, fill: "forwards" }
