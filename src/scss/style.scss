@@ -67,6 +67,7 @@
 		top: clamp(0.25rem, 0.25rem + 2vw, 25px);
 		right: clamp(0.25rem, 0.25rem + 2vw, 25px);
 		width: $widthMenuToggle;
+		height: $widthMenuToggle;
 		// height: 3rem;
 		display: flex;
 		align-items: center;
