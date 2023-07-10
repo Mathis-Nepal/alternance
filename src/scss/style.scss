@@ -25,14 +25,16 @@
 		padding: 3rem !important;
 		display: block;
 	}
+	.container_mockup {
+		height: 50vh !important;
+		width: 50%;
+		margin-top: 3rem;
+	}
 }
 
 @media screen and (max-width: 768px) {
 	.section {
 		min-height: auto !important;
-	}
-	.section_2-2 {
-		display: block !important;
 	}
 	nav {
 		display: none !important;
@@ -113,6 +115,11 @@
 		padding: 3rem !important;
 		display: block;
 	}
+
+	.contain_all_section_2 {
+		height: auto !important;
+		gap: clamp(2rem, 1rem + 10vw, 10rem);
+	}
 	.in_contain_section_3 {
 		display: block;
 	}
@@ -149,7 +156,7 @@
 		max-width: 100% !important;
 	}
 	.contain_last_project {
-		display: block !important;
+		// display: block !important;
 		min-height: auto !important;
 		gap: 3rem;
 		.contain_title_part {
@@ -158,10 +165,6 @@
 		.presentation_project {
 			margin-bottom: 2rem;
 		}
-	}
-	.container_mockup {
-		width: 50%;
-		margin-top: 3rem;
 	}
 }
 .animated-title-container-1,
@@ -463,6 +466,7 @@ nav {
 	@include flexbox(center, center, column);
 }
 .contain_all_section_2 {
+	@include flexbox(space-between, stretch, column);
 	z-index: 2;
 	// min-height: 140vh;
 	height: 140vh;
@@ -470,12 +474,13 @@ nav {
 		@extend %absolute;
 		backdrop-filter: blur(100px);
 		width: 100%;
-		height: 140%;
+		// height: 140%;
 		z-index: 1;
 	}
 	.blob {
 		z-index: -2;
 		// @extend %absolute;
+		display: none;
 		position: absolute;
 
 		aspect-ratio: 1/1;
