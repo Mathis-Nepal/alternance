@@ -39,7 +39,6 @@ firstPhoneLoader.load("assets/phone_1/phone_1.gltf", (gltf) => {
 		ScrollTrigger.create({
 			trigger: ".section_2-2",
 			start: "center center",
-			markers: true,
 			scrub: 2,
 			endTrigger: ".section_3",
 			end: "35% center",
@@ -50,7 +49,6 @@ firstPhoneLoader.load("assets/phone_1/phone_1.gltf", (gltf) => {
 		ScrollTrigger.create({
 			trigger: ".section_3",
 			start: "top center",
-			markers: true,
 			scrub: 2,
 			endTrigger: ".section_3",
 			end: "center center",
@@ -83,7 +81,6 @@ secondPhoneLoader.load("assets/phone_2/phone_2.gltf", (gltf) => {
 			trigger: ".section_2-2",
 			start: "center center",
 			scrub: 2,
-			markers: true,
 			endTrigger: ".section_3",
 			end: "35% center",
 			animation: timeline2,
