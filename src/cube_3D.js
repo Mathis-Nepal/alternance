@@ -26,7 +26,7 @@ function resizing() {
 }
 
 const maxScale = 0.25;
-const minScale = 0.17;
+const minScale = 0.23;
 resizing();
 
 GltfLoader.load("assets/cube/cube.gltf", (gltf) => {
