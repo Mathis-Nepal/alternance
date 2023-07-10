@@ -41,7 +41,7 @@ firstPhoneLoader.load("assets/phone_1/phone_1.gltf", (gltf) => {
 			start: "center center",
 			scrub: 2,
 			endTrigger: ".section_3",
-			end: "center center",
+			end: "35% center",
 			animation: timeline1,
 		});
 		console.log("mobile");
@@ -82,7 +82,7 @@ secondPhoneLoader.load("assets/phone_2/phone_2.gltf", (gltf) => {
 			start: "center center",
 			scrub: 2,
 			endTrigger: ".section_3",
-			end: "center center",
+			end: "35% center",
 			animation: timeline2,
 		});
 		console.log("mobile");
