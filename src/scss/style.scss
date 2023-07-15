@@ -113,7 +113,7 @@
 		}
 	}
 	.section {
-		padding: 3rem !important;
+		padding: clamp(3.5rem, 3rem + 1vw, 6rem) !important;
 		display: block;
 	}
 
@@ -523,12 +523,8 @@ nav {
 		color: $white;
 		font-family: $book;
 		font-size: 3rem;
+		line-height: 100%;
 	}
-}
-
-.cube {
-	width: 100%;
-	height: 100%;
 }
 
 .section_2-2 {
@@ -572,6 +568,7 @@ nav {
 		// min-height: 600px;
 		@include flexbox(space-between, start, column);
 		.presentation_project {
+			z-index: 1;
 			max-width: 700px;
 			font-family: $book;
 			@include flexbox(center, stretch);

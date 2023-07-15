@@ -102,7 +102,7 @@ document.querySelector(".button-project").addEventListener("click", function () 
 	animationTitle(".section_3");
 	quitNav();
 });
-document.querySelector(".ouioui").addEventListener("click", function () {
+document.querySelector(".header-contact-button").addEventListener("click", function () {
 	animationTitle(".section_4");
 	// quitNav();
 });
