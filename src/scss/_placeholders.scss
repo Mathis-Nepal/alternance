@@ -36,6 +36,7 @@
 }
 
 %button_with_border {
+	cursor: pointer;
 	overflow: hidden;
 	position: relative;
 	@extend %flex-center;
