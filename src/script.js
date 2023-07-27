@@ -38,38 +38,75 @@ window.addEventListener("load", function () {
 const blob = document.querySelector(".blob");
 const blur = document.querySelector(".contain_all_section_2");
 
-blur.onpointermove = (event) => {
+let currentX = 0;
+let currentY = 0;
+let targetX = 0;
+let targetY = 1400;
+const ease = 0.15;
+
+function moveBlob() {
+	const diffX = targetX - currentX;
+	const diffY = targetY - currentY;
+
+	currentX += diffX * ease;
+	currentY += diffY * ease;
+
+	blob.style.left = `${currentX}px`;
+	blob.style.top = `${currentY}px`;
+
+	requestAnimationFrame(moveBlob);
+}
+
+blur.addEventListener("pointermove", (event) => {
 	const { clientX, clientY } = event;
-	const scrollY = window.scrollY || window.pageYOffset;
+	const scrollY = window.scrollY;
 	const maxX = blur.clientWidth;
-	const left = Math.min(Math.max(0, clientX - blob.clientWidth / 2), maxX);
+	const maxY = blur.clientHeight;
+	const blobWidth = blob.clientWidth;
+	const blobHeight = blob.clientHeight;
+	targetX = Math.min(Math.max(0, clientX - blobWidth / 3), maxX - blobWidth / 2);
+	targetY = Math.min(Math.max(0, clientY - blobHeight / 3), maxY - blobHeight / 2) + scrollY;
+	console.log(targetY);
+});
 
-	blob.animate(
-		{
-			// position: "absolute", // display: "block",
-			left: `${left}px`,
-			top: `${clientY + scrollY}px`,
-		},
-		{ duration: 3000, fill: "forwards" }
-	);
-};
+moveBlob(); // Start the animation loop
 
-blur.onwheel = (event) => {
-	const { clientX, clientY } = event;
-	const scrollY = window.scrollY || window.pageYOffset;
-	const maxX = blur.clientWidth;
-	const left = Math.min(Math.max(0, clientX - blob.clientWidth / 2), maxX);
+// blur.onpointermove = (event) => {
+// 	const { clientX, clientY } = event;
+// 	const scrollY = window.scrollY;
+// 	const maxX = blur.clientWidth;
+// 	const left = Math.min(Math.max(0, clientX - blob.clientWidth / 2), maxX);
 
-	blob.animate(
-		{
-			// display: "block",
-			// position: "absolute",
-			left: `${left}px`,
-			top: `${clientY + scrollY}px`,
-		},
-		{ duration: 3000, fill: "forwards" }
-	);
-};
+// 	console.log("oui");
+
+// 	blob.animate(
+// 		{
+// 			// position: "absolute", // display: "block",
+// 			left: `${left}px`,
+// 			top: `${clientY + scrollY}px`,
+// 		},
+// 		{ duration: 3000, fill: "forwards" }
+// 	);
+// };
+
+// blur.onwheel = (event) => {
+// 	const { clientX, clientY } = event;
+// 	const scrollY = window.scrollY;
+// 	const maxX = blur.clientWidth;
+// 	const left = Math.min(Math.max(0, clientX - blob.clientWidth / 2), maxX);
+
+// 	console.log("nop");
+
+// 	blob.animate(
+// 		{
+// 			// display: "block",
+// 			// position: "absolute",
+// 			left: `${left}px`,
+// 			top: `${clientY + scrollY}px`,
+// 		},
+// 		{ duration: 3000, fill: "forwards" }
+// 	);
+// };
 
 // document.body.onwheel = (event) => {
 // 	// const scrollX = window.scrollX || window.pageXOffset;
