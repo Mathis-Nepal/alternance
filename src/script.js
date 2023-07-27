@@ -41,7 +41,7 @@ const blur = document.querySelector(".contain_all_section_2");
 let currentX = 0;
 let currentY = 0;
 let targetX = 0;
-let targetY = 1400;
+let targetY = 0;
 const ease = 0.15;
 
 function moveBlob() {

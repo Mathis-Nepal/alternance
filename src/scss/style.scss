@@ -120,6 +120,7 @@
 	.contain_all_section_2 {
 		height: auto !important;
 		gap: clamp(2rem, 1rem + 10vw, 10rem);
+		position: relative;
 	}
 	.in_contain_section_3 {
 		display: block;
