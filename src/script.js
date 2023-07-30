@@ -57,17 +57,28 @@ function moveBlob() {
 	requestAnimationFrame(moveBlob);
 }
 
-blur.addEventListener("pointermove", (event) => {
+blur.onpointermove = (event) => {
 	const { clientX, clientY } = event;
-	const scrollY = window.scrollY;
+	const scrollY = window.scrollY - blur.offsetTop;
 	const maxX = blur.clientWidth;
 	const maxY = blur.clientHeight;
 	const blobWidth = blob.clientWidth;
 	const blobHeight = blob.clientHeight;
 	targetX = Math.min(Math.max(0, clientX - blobWidth / 3), maxX - blobWidth / 2);
 	targetY = Math.min(Math.max(0, clientY - blobHeight / 3), maxY - blobHeight / 2) + scrollY;
-	console.log(targetY);
-});
+};
+
+blur.onwheel = (event) => {
+	const { clientX, clientY } = event;
+	const scrollY = window.scrollY - blur.offsetTop;
+	const maxX = blur.clientWidth;
+	const maxY = blur.clientHeight;
+	const blobWidth = blob.clientWidth;
+	const blobHeight = blob.clientHeight;
+	targetX = Math.min(Math.max(0, clientX - blobWidth / 3), maxX - blobWidth / 2);
+	targetY = Math.min(Math.max(0, clientY - blobHeight / 3), maxY - blobHeight / 2) + scrollY;
+	// console.log(blur.offsetTop - window.scrollY);
+};
 
 moveBlob(); // Start the animation loop
 
