@@ -472,7 +472,7 @@ nav {
 	z-index: 2;
 	// min-height: 140vh;
 	position: relative;
-
+	overflow: hidden;
 	height: 140vh;
 	.blur {
 		@extend %absolute;
