@@ -471,13 +471,15 @@ nav {
 	@include flexbox(space-between, stretch, column);
 	z-index: 2;
 	// min-height: 140vh;
+	position: relative;
+
 	height: 140vh;
 	.blur {
 		@extend %absolute;
 		backdrop-filter: blur(100px);
 		-webkit-backdrop-filter: blur(100px);
 		width: 100%;
-		height: 140%;
+		height: 100%;
 		z-index: 1;
 	}
 	.blob {
@@ -563,6 +565,7 @@ nav {
 }
 
 .section_3 {
+	z-index: 2;
 	color: $blackcolor;
 	background-color: $purple;
 	@extend %flex-center;
